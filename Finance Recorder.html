@@ -485,12 +485,7 @@
   // ---------------- Boot ----------------
   window.addEventListener('load', ()=>{
     const cur = getCurrent(); if(cur){ const users = loadUsers(); const u = users[cur]; if(u){ qs('#currentUserInfo').textContent = u.name + ' ('+u.email+')'; showAppFor(cur); }} else {
-      // Pre-fill example user for first-run demo (optional) - commented out
-      // let demo = {name:'Demo', email:'demo@me', phone:'', password:'1234', records:[]}; persistUser(demo); setCurrent(demo.email); showAppFor(demo.email);
-    }
-  });
 
-  // ensure renderAll called on persisted change
   const basePersistUser = persistUser;
   persistUser = function(u){ basePersistUser(u); renderAll(); };
 
